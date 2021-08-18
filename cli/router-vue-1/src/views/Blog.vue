@@ -1,6 +1,6 @@
 <template>
   <div>
-      
+      <Titulo texto="Título de mi blog"/>
   </div>
 </template>
 
