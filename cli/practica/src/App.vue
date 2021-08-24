@@ -4,8 +4,8 @@
     <router-link to="/about">About</router-link> |
     <router-link to="/user">Usuarios</router-link> |
     <router-link to="/route">Ruta</router-link>
-  </div>
   <router-view/>
+  </div>
 </template>
 
 <style>
