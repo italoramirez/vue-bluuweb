@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejs</title>
-</head>
-<body>
-    <h1>Título del index</h1>
+<%- include('partials/header', { titulos: 'Página de cabecera' })%>
+
+    <h1 class="text-primary">Título del index</h1>
     <h2><%= title %> </h2>
-</body>
-</html>
+
+
+<%- include('partials/footer')%>

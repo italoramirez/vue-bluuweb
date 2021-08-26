@@ -39,12 +39,15 @@ app.get('/servicios', (req, res) => {
 })
 
 app.use((req, res, next) => { 
-    res.status(404).sendFile(__dirname + '/public/404.html');
+    // res.status(404).sendFile(__dirname + '/public/404.html');
+    res.status(404).render('404', { 
+        titulo: '404', descricion: 'Descripción 404.'
+    });
 })
 
 
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`corriendo ${port}`)
 })
