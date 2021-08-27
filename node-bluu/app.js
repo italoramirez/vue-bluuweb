@@ -21,22 +21,27 @@
 
 
 const express = require('express');
+const mongoose = require('mongoose');
+
+
+
 const app = express();
+
+
+mongoose.connect(uri , {
+    useNewUrlParser: true, useUnifiedTopology: true
+})
+    .then( () => console.log('DB conectada'))
+    .catch( e => console.log(e));
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
 app.use(express.static(__dirname + '/public'))
 
-app.get('/', (req, res) => {
-    // res.send('index');
-    res.render('index', {title: 'dinámico'});
-})
-
-app.get('/servicios', (req, res) => {
-    // res.send('index');
-    res.render('servicios', {title: 'servicios'});
-})
+//rutas Web
+app.use('/', require('./router/RutasWeb'));
+app.use('/mascotas', require('./router/mascotas'));
 
 app.use((req, res, next) => { 
     // res.status(404).sendFile(__dirname + '/public/404.html');

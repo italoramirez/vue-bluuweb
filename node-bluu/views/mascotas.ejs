@@ -1,0 +1,33 @@
+<%- include('partials/header', { titulos: 'Página de cabecera' })%>
+
+
+    <div class="container">
+        mascotas
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if ( arrayMascotas.length > 0 ) { %>
+                    <% arrayMascotas.forEach(mascota => { %>
+                        <tr>
+                            <td><%= mascota.id %></td>
+                            <td><%= mascota.nombre %></td>
+                            <td><%= mascota.descripcion %></td>
+                            <td>
+                                <button class="btn btn-primary btn-sm">Editat</button>
+                                <button class="btn btn-danger btn-sm">Eliminar</button>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } %>
+            </tbody>    
+        </table>
+    </div>
+
+<%- include('partials/footer')%>
