@@ -1,0 +1,30 @@
+<%- include('partials/header', { titulos: 'Crear Mascota' })%>
+
+    <div class="container">
+        <h1>Crear</h1>
+
+        <form action="/mascotas" method="POST">
+            <input 
+                type="text" 
+                placeholder="Ingresar nombre"
+                class="form-control my-2"
+                name="nombre" 
+                id=""
+            >
+            <input 
+                type="text" 
+                placeholder="Ingresar descripcion"
+                class="form-control my-2"
+                name="descripcion" 
+                id=""
+            >
+            <button
+                class="btn btn-success btn-block"
+                type="submit"
+            >
+                Agregar
+            </button>
+        </form>
+    </div>
+
+<%- include('partials/footer')%>

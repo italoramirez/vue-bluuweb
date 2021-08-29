@@ -2,7 +2,13 @@
 
 
     <div class="container">
-        mascotas
+        <h1>CRUD Mongo</h1>
+       <a
+        class="btn btn-dark btn-block my-2" 
+        href="/mascotas/crear"
+       >
+           Crear Nueva mascota
+       </a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -18,9 +24,10 @@
                         <tr>
                             <td><%= mascota.id %></td>
                             <td><%= mascota.nombre %></td>
-                            <td><%= mascota.descripcion %></td>
+                            <td><%= mascota.descripcion %></td> 
                             <td>
-                                <button class="btn btn-primary btn-sm">Editat</button>
+                                <button class="btn btn-primary btn-sm">Editar
+                                </button>
                                 <button class="btn btn-danger btn-sm">Eliminar</button>
                             </td>
                         </tr>

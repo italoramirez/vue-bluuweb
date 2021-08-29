@@ -22,11 +22,22 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-
-
+var bodyParser = require('body-parser')
+//Entorno e.nv
+require('dotenv').config()
 
 const app = express();
 
+// parse application/x-www-form-urlencoded -> envìo de formulario através un formulario post 
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json -> fetch através de json
+app.use(bodyParser.json())
+const port = process.env.PORT || 3000;
+
+
+
+
+const uri = `mongodb+srv://${ process.env.USUARIO }:${ process.env.PASSWORD }@cluster0.ggmgg.mongodb.net/${ process.env.DBNAME }?retryWrites=true&w=majority`;
 
 mongoose.connect(uri , {
     useNewUrlParser: true, useUnifiedTopology: true
@@ -52,7 +63,6 @@ app.use((req, res, next) => {
 
 
 
-const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`corriendo ${port}`)
 })
