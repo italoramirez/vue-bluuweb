@@ -1,0 +1,13 @@
+<%- include('partials/header', { titulos: 'Detalle de Mascota' })%>
+
+    <div class="container">
+        <h1>Detalle Mascota</h1>
+        <% if (error) { %>
+            <p>
+                <%= mensaje %> 
+            </p>
+            <a href="/mascotas" class="btn btn-info">Volver a mascotas</a>
+        <% } %>
+    </div>
+
+<%- include('partials/footer')%>
