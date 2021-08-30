@@ -13,11 +13,16 @@ app.use(bodyparser.json());
 
 // import routes
 
+const authRoutes = require('./router/auth');
+
 // route middlewares
+app.use('/api/user', authRoutes);
+
+
 app.get('/', (req, res) => {
     res.json({
         estado: true,
-        mensaje: 'funciona!'
+        mensaje: 'API Rest!'
     })
 });
 
