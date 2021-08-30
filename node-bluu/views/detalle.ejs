@@ -8,6 +8,102 @@
             </p>
             <a href="/mascotas" class="btn btn-info">Volver a mascotas</a>
         <% } %>
+
+        <% if (!error) { %>
+
+            <form id="formularioEditar"  data-id="<%= mascota.id %>"> 
+                <input 
+                    type="text"
+                    class="form-control my-2"
+                    name="nombre"
+                    value="<%= mascota.nombre %> "
+                    id="nombre"
+                >
+                <input 
+                    type="text"
+                    class="form-control my-2"
+                    name="descripcion"
+                    value="<%= mascota.descripcion %>"
+                    id="descripcion"
+                >
+                <button
+                    class="btn btn-info btn-block"
+                >
+                    Editar
+                </button>
+            </form>
+           <hr>
+            <button 
+                href="" class="btn btn-danger"
+                id="btnEliminar"
+                data-id="<%= mascota.id %>"
+            >
+                Eliminar
+            </button>
+        
+        <% } %>
     </div>
 
 <%- include('partials/footer')%>
+
+<script>
+
+    const btnEliminar = document.querySelector('#btnEliminar');
+    
+    if (btnEliminar) {
+        btnEliminar.addEventListener('click', async () => {
+            console.log('click');
+            const id = btnEliminar.dataset.id;
+            // console.log(id); 
+            try {
+                const data = await fetch(`/mascotas/${ id }`, { 
+                    method: 'delete'
+                });
+                const res = await data.json();
+                // console.log(res);
+
+                if (res.estado) {
+                    window.location.href = '/mascotas';
+                } else {
+                    // console.log(res);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        })
+    }
+
+    const formularioEditar = document.querySelector('#formularioEditar');
+
+    formularioEditar.addEventListener('submit', async ( e ) => {
+        e.preventDefault();
+        const nombre = document.querySelector('#nombre').value;
+        const descripcion = document.querySelector('#descripcion').value;
+        const id = formularioEditar.dataset.id;
+        try {
+            const data = await fetch(`/mascotas/${ id }`, { 
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nombre,
+                    descripcion
+                })
+            });
+            const res = await data.json();
+
+            if ( res.estado ) {
+                alert('Mascota actualizada correctamente');
+            } else {
+                alert('Mascota no actualizada');    
+            }
+
+            console.log(res);
+        } catch (error) {
+            console.error(error);
+        }
+        console.log(nombre, descripcion, id)
+    })
+    
+</script>

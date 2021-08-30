@@ -35,8 +35,6 @@ app.use(bodyParser.json())
 const port = process.env.PORT || 3000;
 
 
-
-
 const uri = `mongodb+srv://${ process.env.USUARIO }:${ process.env.PASSWORD }@cluster0.ggmgg.mongodb.net/${ process.env.DBNAME }?retryWrites=true&w=majority`;
 
 mongoose.connect(uri , {
@@ -60,7 +58,6 @@ app.use((req, res, next) => {
         titulo: '404', descricion: 'Descripción 404.'
     });
 })
-
 
 
 app.listen(port, () => {

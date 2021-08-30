@@ -26,9 +26,12 @@
                             <td><%= mascota.nombre %></td>
                             <td><%= mascota.descripcion %></td> 
                             <td>
-                                <button class="btn btn-primary btn-sm">Editar
-                                </button>
-                                <button class="btn btn-danger btn-sm">Eliminar</button>
+                                <a 
+                                    class="btn btn-primary btn-sm"
+                                    href="mascotas/<%= mascota.id %> "
+                                >
+                                    Editar
+                                </a>
                             </td>
                         </tr>
                     <% }) %>
