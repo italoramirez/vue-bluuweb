@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
     res.json({
         error: null,
         data: 'data de resgitro'
