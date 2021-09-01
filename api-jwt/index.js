@@ -10,7 +10,8 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
 // Conexión a Base de datos
-const uri = `mongodb+srv://${ process.env.USER }:${ process.env.PASSWORD }@cluster0.ggmgg.mongodb.net/${ process.env.DBNAME }?retryWrites=true&w=majority`
+// const uri =`mongodb+srv://${ process.env.USER }:<password>@cluster0.ggmgg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+const uri = `mongodb+srv://${ process.env.USUARIO }:${ process.env.PASSWORD }@cluster0.ggmgg.mongodb.net/${ process.env.DBNAME }?retryWrites=true&w=majority`
 // const uri = `mongodb+srv://${ process.env.USER }:${ process.env.PASSWORD }@cluster0.ncdk5.mongodb.net/${ process.env.DBNAME }?retryWrites=true&w=majority`;
 mongoose.connect(uri,
     { useNewUrlParser: true, useUnifiedTopology: true }
