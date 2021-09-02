@@ -1,16 +1,11 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-
-    <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-    <v-toolbar-title>Vuetify</v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-btn class="success"> Ingresar</v-btn>
-    <v-btn class="dark"> Salir</v-btn>
+    <v-app-bar app color="primary" dark>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title to="/">Vuetify</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn class="success">Ingresar</v-btn>
+      <v-btn class="dark"> Salir</v-btn>
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
@@ -22,30 +17,71 @@
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" temporary absolute>
-      <v-layout mt-4 column align-center>
-        <v-flex>
-          <v-avatar>
-            <img ml-3 src="https://randomuser.me/api/portraits/women/81.jpg" alt="">
-          </v-avatar>
-        </v-flex>
-      </v-layout>
-    </v-navigation-drawer >
+      <!-- <v-layout mt-4 column align-center> -->
+        <v-list
+            nav
+           dense
+         >
+
+          <v-list-item-group
+            v-model="group"
+            active-class="deep-purple--text text--accent-4"
+          >
+            <v-list-item to="/grid">
+              <v-list-item-icon>
+                <v-icon>mdi-home</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Grid</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item to="/">
+              <v-list-item-icon>
+                <v-icon>
+                  mdi-account
+                </v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Home</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item to="/boton">
+              <v-list-item-icon>
+                <v-icon>
+                  mdi-home
+                </v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Botón</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item to="/card">
+              <v-list-item-icon>
+                <v-icon>
+                  mdi-account
+                </v-icon>
+              </v-list-item-icon>
+                <v-list-item-title>
+                  Cards
+                </v-list-item-title>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      <!-- </v-layout> -->
+    </v-navigation-drawer>
 
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "App",
 
-  data () {
+  data() {
     return {
-      drawer: false
-    }
+      drawer: false,
+      group: null
+    };
   },
 };
 </script>

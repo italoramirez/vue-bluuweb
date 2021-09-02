@@ -7,7 +7,7 @@
                 <v-btn color="success">Texto</v-btn>
                 <v-btn dark color="blue">Texto</v-btn>
 
-                <v-btn color="" flat>Sin fondo</v-btn>
+                <v-btn color="" text>Sin fondo</v-btn>
                 <v-btn color="red" large>Largo</v-btn>
                 <v-btn color="red" small>small</v-btn>
                 <v-btn color="red" small depressed>depres</v-btn>
