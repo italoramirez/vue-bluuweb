@@ -27,14 +27,14 @@
             v-model="group"
             active-class="deep-purple--text text--accent-4"
           >
-            <v-list-item to="/grid">
+            <v-list-item :to="{ name: 'grid' }">
               <v-list-item-icon>
                 <v-icon>mdi-home</v-icon>
               </v-list-item-icon>
               <v-list-item-title>Grid</v-list-item-title>
             </v-list-item>
 
-            <v-list-item to="/">
+            <v-list-item :to="{ name: 'Home' }">
               <v-list-item-icon>
                 <v-icon>
                   mdi-account
@@ -43,7 +43,7 @@
               <v-list-item-title>Home</v-list-item-title>
             </v-list-item>
 
-            <v-list-item to="/boton">
+            <v-list-item :to="{ name: 'boton'}">
               <v-list-item-icon>
                 <v-icon>
                   mdi-home
@@ -52,7 +52,7 @@
               <v-list-item-title>Botón</v-list-item-title>
             </v-list-item>
 
-            <v-list-item to="/card">
+            <v-list-item :to="{ name: 'card'}">
               <v-list-item-icon>
                 <v-icon>
                   mdi-account
@@ -61,6 +61,17 @@
                 <v-list-item-title>
                   Cards
                 </v-list-item-title>
+            </v-list-item>
+
+            <v-list-item :to="{ name: 'TareasCrud'}">
+              <v-list-item-icon>
+                <v-icon>
+                  mdi-account
+                </v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>
+                Tareas
+              </v-list-item-title>
             </v-list-item>
           </v-list-item-group>
         </v-list>
